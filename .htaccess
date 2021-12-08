@@ -1,0 +1,11 @@
+DirectoryIndex /public/index.php
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /public/
+	RewriteRule ^\.index\.php$ - [L]
+	RewriteRule ^(.*)(img|css|js|icons|fonts)(.*)$ $1$2$3 [NC,S=1]
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteRule . /public/index.php [L]
+</IfModule>
